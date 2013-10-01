@@ -18,13 +18,16 @@ module.exports = function(grunt) {
     var options = this.options({
       bin:        'svn',
       repository: '',
-      output:     'src'
+      output:     'src',
+      useforce:     false
     });
     grunt.verbose.writeflags(options, 'Options');
     grunt.log.write('Exporting from ' + options.repository + '\n');
 
+    var useforce = (options.useforce) ? '--force' : '';
+
     var done = this.async();
-    var command = [ options.bin, 'export', options.repository, options.output ].join(' ');
+    var command = [ options.bin, 'export', useforce, options.repository, options.output ].join(' ');
 
     exec(command, function (error, stdout) {
       grunt.log.write(stdout);
