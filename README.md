@@ -55,6 +55,12 @@ Default value: `'src'`
 
 A string value that is used to specify the output path of the export.
 
+#### options.useforce
+Type: `Boolean`
+Default value: `false`
+
+If this is set to true, the svn export will overwrite the outputfolder if it already exists.
+
 ### Usage Examples
 
 #### Default Options
